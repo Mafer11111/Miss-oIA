@@ -3,18 +3,27 @@ const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
-    {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
-        alternativas: [
-            {
-                texto: "Isso é assustador!",
-                afirmacao: "No início ficou com medo do que essa tecnologia pode fazer."
-            },
-            {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "Quis aprender como usar a IA para facilitar seu dia a dia."
-            }
-        ]
+  {
+    enunciado:
+      "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
+    alternativas: [
+      {
+        texto: "Isso é assustador!",
+        afirmacao: [
+          "No início ficou com medo do que essa tecnologia pode fazer. ",
+          "Achou assustador pensar na velocidade na qual a tecnologia está avançando.",
+        ],
+      },
+      {
+        texto: "Isso é maravilhoso!",
+        afirmacao: [
+          "Quis saber como usar IA no seu dia a dia.",
+          "Foi atrás de vídeos, artigos e mais informaçõe sobre como utilizar essa tecnologia.",
+        ],
+      },
+    ],
+  },
+];
     },
     {
         enunciado: "A professora pede um trabalho sobre Inteligência Artificial. O que você faz?",
@@ -108,7 +117,7 @@ function mostraAlternativas(){
 
 function respostaSelecionada(opcaoSelecionada){
 
-    historiaFinal += opcaoSelecionada.afirmacao + " ";
+    historiaFinal += aleatorio(opcaoSelecionada.afirmacao) + " ";
 
     atual++;
 
@@ -124,6 +133,11 @@ function mostraResultado(){
 
     caixaAlternativas.textContent = "";
 
+}
+
+function aleatorio(lista) {
+const posicao = Math.floor(Math.random()* lista.length);
+return lista[posicao];
 }
 
 mostraPergunta();
