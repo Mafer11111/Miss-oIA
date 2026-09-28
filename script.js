@@ -23,8 +23,7 @@ const perguntas = [
       },
     ],
   },
-];
-    },
+];,
     {
         enunciado: "A professora pede um trabalho sobre Inteligência Artificial. O que você faz?",
         alternativas: [
